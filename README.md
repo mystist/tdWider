@@ -23,5 +23,8 @@ Contact me for more information:
 
 # Change Log
 
+## 2013-04-23  
+Fix revert issues: revert can only be execute when the tdWider has used.
+
 ## 2013-04-22  
 Initial tdWider release.

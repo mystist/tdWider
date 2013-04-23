@@ -30,6 +30,7 @@
     this.$this = null;
     this.currentMoveLength = 0;
     this.applyToAnotherTable = null;
+    this.hasUsed = false;
   }
   
   TdWider.prototype = {
@@ -44,6 +45,7 @@
       if(this.applyToAnotherTable) {
         this.setElements("last");
       }
+      this.hasUsed = true;
     
     },
     
@@ -242,15 +244,21 @@
     
     revert: function() {
     
-      this.reverTdWidth();
+      if(this.hasUsed) {
     
-      if(this.applyToAnotherTable) {
-        this.revertElements("last");
-      }
-    
-      this.$this.find(".m_inner").draggable("destroy");
+        this.reverTdWidth();
       
-      this.revertElements("first");
+        if(this.applyToAnotherTable) {
+          this.revertElements("last");
+        }
+      
+        this.$this.find(".m_inner").draggable("destroy");
+        
+        this.revertElements("first");
+        
+        this.hasUsed = false;
+        
+      }
     
     }
   
