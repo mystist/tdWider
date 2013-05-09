@@ -1,4 +1,4 @@
-# Your Tiny Helper, Your Awesome tdWider!
+## Your Tiny Helper, Your Awesome tdWider!
 
 tdWider is a simple, tiny, kind, free jQuery plugin to make the width of each td column changeable.
 
@@ -21,10 +21,10 @@ Contact me for more information:
 [1]: https://github.com/Mystist/theadFixer
 [2]: http://jqueryui.com/
 
-# Change Log
+## Change Log
 
-## 2013-04-23  
+### 2013-04-23  
 Fix revert issues: revert can only be execute when the tdWider has used.
 
-## 2013-04-22  
+### 2013-04-22  
 Initial tdWider release.
