@@ -15,7 +15,8 @@
 
     init: function(options) {
       var defaults = {
-        "applyToAnotherTable": false
+        "applyToAnotherTable": false,
+		"renderbetter":"auto"
       };
       var settings = $.extend(defaults, options);
       var tdWider = new TdWider();
@@ -40,11 +41,20 @@
     initialize: function(st) {
 
       this.applyToAnotherTable = st.applyToAnotherTable==true?"table:last":st.applyToAnotherTable;
+	  //根据参数不同,判断渲染优化是否启用
+      if(st.renderbetter == "auto" || st.renderbetter.toLowerCase() == "tdwider")
+	  {
+    	  //如果渲染优化参数传递的是auto(自动启用)或者TdWider,那么此时启用渲染优化
+		  $(this.$this[0]).find("table,thead,tbody").hide();
+      }
+      
       this.setElements("first");
       this.bindDrag();
       if(this.applyToAnotherTable) {
         this.setElements("last");
       }
+	  //插件加载完成后,不管怎样,默认都显示出来	
+      $(this.$this[0]).find("table,thead,tbody").show();
       this.hasUsed = true;
     
     },
